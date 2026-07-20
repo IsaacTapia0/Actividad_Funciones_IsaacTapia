@@ -1,7 +1,6 @@
-def reemplazar_manual(texto, viejo, nuevo):
-    if len(viejo) != 1 or len(nuevo) != 1:
-        return texto, 0
+# Reemplazar caracteres en una cadena
 
+def reemplazar_manual(texto, viejo, nuevo):
     resultado = ""
     contador = 0
 
@@ -15,17 +14,18 @@ def reemplazar_manual(texto, viejo, nuevo):
     return resultado, contador
 
 texto = input("Cadena: ")
-car_viejo = input("Carácter a reemplazar: ")
-car_nuevo = input("Carácter nuevo: ")
 
-if len(car_viejo) != 1 or len(car_nuevo) != 1:
-    print("Debe ingresar un solo carácter")
+if not texto:
+    print("Error: Debes ingresar una cadena.")
 else:
-    texto_mod, num = reemplazar_manual(texto, car_viejo, car_nuevo)
-    texto_mod2 = texto.replace(car_viejo, car_nuevo)
+    car_viejo = input("Carácter a reemplazar: ")
+    car_nuevo = input("Carácter nuevo: ")
 
-    print("Manual:", texto_mod, "| Reemplazos:", num)
-    print("Con replace:", texto_mod2)
+    if len(car_viejo) != 1 or len(car_nuevo) != 1:
+        print("Error: Debe ser un solo carácter.")
+    else:
+        texto_mod, reemplazos = reemplazar_manual(texto, car_viejo, car_nuevo)
 
-    if texto_mod == texto_mod2:
-        print("Correcto")
+        print(f"\nOriginal: '{texto}'")
+        print(f"Modificado: '{texto_mod}'")
+        print(f"Reemplazos realizados: {reemplazos}")
