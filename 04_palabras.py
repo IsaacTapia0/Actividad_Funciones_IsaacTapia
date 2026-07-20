@@ -1,18 +1,22 @@
+# Convertir palabras a mayúsculas
+
+def procesar_palabra(palabra):
+    return palabra.upper()
+
 def main():
+    print("Ingresa palabras (Enter vacío para terminar)")
     contador = 0
+
     while True:
-        entrada = input("Palabra o número (espacio termina): ")
+        entrada = input("Palabra: ")
+
         if entrada == "":
             break
-        try:
-            if entrada.isdigit():
-                entrada = str(entrada)
-            print(entrada.upper())
-            contador += 1
-        except Exception as e:
-            print("Error:", e)
 
-    print("Programa terminado")
-    print("Cantidad de palabras procesadas:", contador)
+        resultado = procesar_palabra(entrada)
+        print(f"  -> {resultado}")
+        contador += 1
+
+    print(f"\nPrograma terminado. Palabras procesadas: {contador}")
 
 main()
