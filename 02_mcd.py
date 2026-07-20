@@ -1,3 +1,5 @@
+# Calcular Máximo Común Divisor
+
 import math
 
 def mcd(a, b):
@@ -9,17 +11,19 @@ def mcd(a, b):
         a, b = b, a % b
     return a
 
-num1 = int(input("Primer número: "))
-num2 = int(input("Segundo número: "))
+try:
+    num1 = int(input("Primer número: "))
+    num2 = int(input("Segundo número: "))
 
-resultado = mcd(num1, num2)
-resultado_math = math.gcd(num1, num2)
+    resultado = mcd(num1, num2)
+    resultado_math = math.gcd(num1, num2)
 
-print(f"MCD calculado: {resultado}")
-print(f"MCD con math.gcd: {resultado_math}")
-print("Los resultados sí coinciden" if resultado == resultado_math else "No coinciden")
+    print(f"\nMCD de {num1} y {num2}:")
+    print(f"  Calculado: {resultado}")
+    print(f"  Con math.gcd: {resultado_math}")
 
-if num1 == 0 and num2 == 0:
-    print("Caso especial: ambos números son cero")
-else:
-    print("Programa terminado")
+    if resultado == resultado_math:
+        print("  Los resultados coinciden.")
+
+except ValueError:
+    print("Error: Ingresa números válidos.")
