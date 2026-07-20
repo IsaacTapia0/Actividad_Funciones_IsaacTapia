@@ -1,3 +1,5 @@
+# Verificar si un número es primo
+
 def es_primo(n):
     if n < 2:
         return False
@@ -10,8 +12,15 @@ def es_primo(n):
             return False
     return True
 
-num = int(input("Ingrese un número: "))
-if es_primo(num):
-    print("Es primo")
-else:
-    print("No es primo")
+try:
+    num = int(input("Ingrese un número: "))
+
+    if num < 0:
+        print("Por favor ingresa un número positivo.")
+    elif es_primo(num):
+        print(f"{num} es primo.")
+    else:
+        print(f"{num} no es primo.")
+
+except ValueError:
+    print("Error: Ingresa un número válido.")
